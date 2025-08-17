@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Quarterly Earnings Report</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/black.css" id="theme">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/monokai.css">
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <!-- Title Slide -->
+    <section>
+      <h1>Quarterly Earnings Report</h1>
+      <p>email:<strong>22f3000826@ds.study.iitm.ac.in</strong></p>
+    </section>
+
+    <!-- Markdown-based Slide -->
+    <section data-markdown>
+      <textarea data-template>
+## Key Highlights
+- Revenue growth of **12% YoY**
+- Operating margin improvement
+- Strong customer acquisition
+      </textarea>
+    </section>
+
+    <!-- Slide with Fragments -->
+    <section>
+      <h2>Financial Performance Drivers</h2>
+      <ul>
+        <li class="fragment fade-in">Revenue Increase</li>
+        <li class="fragment fade-in">Cost Optimization</li>
+        <li class="fragment fade-in">New Product Launches</li>
+      </ul>
+    </section>
+
+    <!-- Code Highlighting -->
+    <section>
+      <h2>Data Query Example</h2>
+      <pre><code class="language-sql">
+SELECT quarter, revenue, expenses, profit
+FROM financials
+WHERE quarter = '2025Q2';
+      </code></pre>
+    </section>
+
+    <!-- Math Equations -->
+    <section>
+      <h2>Financial Formula</h2>
+      <p>
+        Net Profit Margin = 
+        \[
+        \frac{\text{Net Income}}{\text{Revenue}} \times 100
+        \]
+      </p>
+    </section>
+
+    <!-- Speaker Notes Example -->
+    <section>
+      <h2>Q2 Summary</h2>
+      <p>Overall positive trends across all business units.</p>
+      <aside class="notes">
+        Emphasize that cost efficiency played a major role in improved profitability.
+      </aside>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/math/math.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    plugins: [ RevealMarkdown, RevealHighlight, RevealMath, RevealNotes ]
+  });
+</script>
+</body>
+</html>
