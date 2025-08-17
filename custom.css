@@ -1,0 +1,12 @@
+.reveal h1, .reveal h2 {
+  letter-spacing: 0.5px;
+}
+
+.reveal section p strong {
+  color: #4cd137;
+}
+
+.reveal pre code {
+  font-size: 0.9em;
+  line-height: 1.4;
+}
