@@ -4,9 +4,16 @@
   <meta charset="utf-8">
   <title>Quarterly Earnings Report</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/black.css" id="theme">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/monokai.css">
+
+  <!-- Core Reveal.js styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/black.css" id="theme">
+
+  <!-- Code highlight theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/monokai.css">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="assets/custom.css">
 </head>
 <body>
 <div class="reveal">
@@ -16,70 +23,113 @@
     <section>
       <h1>Quarterly Earnings Report</h1>
       <p>email:<strong>22f3000826@ds.study.iitm.ac.in</strong></p>
+      <p>Stakeholder Briefing</p>
+      <aside class="notes">
+        Welcome everyone. This deck showcases our modern interactive presentation approach using Reveal.js.
+      </aside>
     </section>
 
-    <!-- Markdown-based Slide -->
-    <section data-markdown>
-      <textarea data-template>
-## Key Highlights
-- Revenue growth of **12% YoY**
-- Operating margin improvement
-- Strong customer acquisition
-      </textarea>
-    </section>
+    <!-- Markdown-based Slide from external file -->
+    <section data-markdown="slides/agenda.md" data-separator="^\n---\n$" data-separator-vertical="^\n--\n$" data-separator-notes="^Note:"></section>
 
     <!-- Slide with Fragments -->
     <section>
       <h2>Financial Performance Drivers</h2>
       <ul>
-        <li class="fragment fade-in">Revenue Increase</li>
-        <li class="fragment fade-in">Cost Optimization</li>
-        <li class="fragment fade-in">New Product Launches</li>
+        <li class="fragment fade-in">Revenue growth via pricing and volume</li>
+        <li class="fragment fade-in">Cost optimization programs</li>
+        <li class="fragment fade-in">Mix shift to higher-margin products</li>
+        <li class="fragment fade-in">FX tailwinds/headwinds management</li>
       </ul>
+      <aside class="notes">
+        Reveal these one by one to build the narrative from revenue to cost to mix and FX effects.
+      </aside>
     </section>
 
-    <!-- Code Highlighting -->
+    <!-- Code Highlighting (SQL) -->
     <section>
       <h2>Data Query Example</h2>
       <pre><code class="language-sql">
-SELECT quarter, revenue, expenses, profit
+SELECT quarter, revenue, opex, net_income
 FROM financials
-WHERE quarter = '2025Q2';
+WHERE fiscal_year = 2025 AND quarter = 'Q2';
       </code></pre>
+      <aside class="notes">
+        This query powers the charts in our BI layer. Keep it simple for the exec audience.
+      </aside>
+    </section>
+
+    <!-- Code Highlighting (Python) -->
+    <section>
+      <h2>Quick Margin Check (Python)</h2>
+      <pre><code class="language-python">
+revenue = 1250_000_000
+net_income = 150_000_000
+net_margin = net_income / revenue * 100
+print(f"Net margin: {net_margin:.2f}%")
+      </code></pre>
+      <aside class="notes">
+        Use to illustrate computational reproducibility and sanity checks outside the BI tool.
+      </aside>
     </section>
 
     <!-- Math Equations -->
     <section>
-      <h2>Financial Formula</h2>
+      <h2>Financial Formulas</h2>
       <p>
-        Net Profit Margin = 
+        Net Profit Margin:
         \[
-        \frac{\text{Net Income}}{\text{Revenue}} \times 100
+          \text{NPM} = \frac{\text{Net Income}}{\text{Revenue}} \times 100
         \]
       </p>
+      <p>
+        Compound Annual Growth Rate (CAGR):
+        \[
+          \text{CAGR} = \left(\frac{V_f}{V_i}\right)^{\frac{1}{n}} - 1
+        \]
+      </p>
+      <aside class="notes">
+        Call out NPM as key profitability metric; use CAGR for multi-year growth storytelling.
+      </aside>
     </section>
 
-    <!-- Speaker Notes Example -->
+    <!-- Speaker Notes Demo -->
     <section>
-      <h2>Q2 Summary</h2>
-      <p>Overall positive trends across all business units.</p>
+      <h2>Q2 Executive Summary</h2>
+      <p>Positive momentum across segments; disciplined cost control.</p>
       <aside class="notes">
-        Emphasize that cost efficiency played a major role in improved profitability.
+        - Lead with topline growth, then margin improvement.
+        - Address macro risks: rates, FX, and demand variability.
+        - Close with guidance and capital allocation priorities.
       </aside>
     </section>
 
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/highlight.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/math/math.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js"></script>
+<!-- Reveal.js and plugins -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/math/math.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
+
 <script>
   Reveal.initialize({
     hash: true,
-    plugins: [ RevealMarkdown, RevealHighlight, RevealMath, RevealNotes ]
+    slideNumber: true,
+    transition: 'fade',
+    plugins: [ RevealMarkdown, RevealHighlight, RevealMath.KaTeX, RevealNotes ],
+    math: {
+      // KaTeX CDN
+      mathjax: null,
+      katex: 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js',
+      katexCss: 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css'
+    },
+    highlight: {
+      // Initialize highlight.js
+      beforeHighlight: hljs => {}
+    }
   });
 </script>
 </body>
